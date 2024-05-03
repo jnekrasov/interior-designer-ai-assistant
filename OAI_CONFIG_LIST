@@ -1,0 +1,16 @@
+[
+    {
+        "model": "gpt4",
+        "api_type": "azure",
+        "api_key": "xxx",
+        "base_url": "xxx",
+        "api_version": "2024-02-15-preview"
+    },
+    {
+        "model": "gpt4v",
+        "api_type": "azure",
+        "api_key": "xxx",
+        "base_url": "xxx",
+        "api_version": "2024-02-15-preview"
+    }
+]

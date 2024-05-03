@@ -6,6 +6,7 @@ client_proxy = UserProxyAgent(
     system_message="You are client who want best interior design possible",
     human_input_mode="NEVER",
     max_consecutive_auto_reply=1,
+    code_execution_config=False,
     is_termination_msg=lambda x: x.get("content", "") and x.get("content", "").rstrip().rstrip('.').endswith("TERMINATE")
 )
 
@@ -40,7 +41,6 @@ llm_config_4v = {
     'temperature': 0   
 }
 
-from autogen.agentchat.contrib.multimodal_conversable_agent import MultimodalConversableAgent
 # Interior Designer agent
 from autogen import AssistantAgent
 interior_designer = AssistantAgent(
@@ -70,6 +70,7 @@ from autogen.agentchat.contrib.capabilities.vision_capability import VisionCapab
 vision_capability = VisionCapability(lmm_config=llm_config_4v)
 vision_capability.add_to_agent(interior_designer)
 
+# Interior Visualizer agent
 interior_visualizer = AssistantAgent(
     name='interior_visualizer',
     system_message="""
@@ -99,6 +100,7 @@ interior_visualizer = AssistantAgent(
     llm_config=llm_config
 )
 
+from image_generation import get_formatted_image_generation_workflow, download_and_persist_image
 import json
 import replicate
 def create_interior_design_visualization(
@@ -123,11 +125,8 @@ def create_interior_design_visualization(
         input=input
     )
     
+    download_and_persist_image(output[0])
     return f'Interior design visualization is ready. You can find it here: <img {output[0]}>'
-
-from autogen import GroupChat, GroupChatManager
-chat = GroupChat([client_proxy, interior_designer, interior_visualizer, code_executor], messages=[], max_round=10)
-chat_manager = GroupChatManager(groupchat=chat, llm_config={'config_list': llm_config['config_list']})
 
 from autogen import register_function
 register_function(
@@ -137,3 +136,19 @@ register_function(
     name='create_interior_design_visualization',
     description='Generate interior design visualization based on photo of the room that needs a new design, prompt, reference photo showing the design style the user wants'
 )
+
+from autogen import GroupChat, GroupChatManager
+chat = GroupChat([client_proxy, interior_designer, interior_visualizer, code_executor], messages=[], max_round=10)
+chat_manager = GroupChatManager(groupchat=chat, llm_config={'config_list': llm_config['config_list']})
+
+def interior_design_for(
+    room_type:str,
+    empty_room_image_url:str,
+    reference_design_image_url,
+    design_requirements:str):
+    client_proxy.initiate_chat(
+        chat_manager,
+        message=f"""
+        Create interior design for this {room_type} <img {empty_room_image_url}>.
+        I have these design requirements: {design_requirements}.
+        The style of the room should be similar to the style presented on this image <img {reference_design_image_url}>""")

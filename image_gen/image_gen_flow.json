@@ -1,95 +1,31 @@
 {
-  "last_node_id": 26,
-  "last_link_id": 48,
+  "last_node_id": 36,
+  "last_link_id": 62,
   "nodes": [
     {
-      "id": 7,
-      "type": "VAEDecode",
+      "id": 8,
+      "type": "PreviewImage",
       "pos": [
-        1961,
-        210
+        1911,
+        377
       ],
       "size": {
-        "0": 210,
-        "1": 46
+        "0": 561.558349609375,
+        "1": 590.149658203125
       },
       "flags": {},
-      "order": 16,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 8
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 13
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
+          "name": "images",
           "type": "IMAGE",
-          "links": [
-            9
-          ],
-          "shape": 3,
-          "slot_index": 0
+          "link": 9
         }
       ],
       "properties": {
-        "Node name for S&R": "VAEDecode"
+        "Node name for S&R": "PreviewImage"
       }
-    },
-    {
-      "id": 1,
-      "type": "CheckpointLoaderSimple",
-      "pos": [
-        363,
-        245
-      ],
-      "size": {
-        "0": 315,
-        "1": 98
-      },
-      "flags": {},
-      "order": 0,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "MODEL",
-          "type": "MODEL",
-          "links": [
-            47
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            24,
-            25
-          ],
-          "shape": 3,
-          "slot_index": 1
-        },
-        {
-          "name": "VAE",
-          "type": "VAE",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CheckpointLoaderSimple"
-      },
-      "widgets_values": [
-        "Realistic_Vision_V6.0_NV_B1.safetensors"
-      ]
     },
     {
       "id": 15,
@@ -103,7 +39,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 1,
+      "order": 0,
       "mode": 0,
       "outputs": [
         {
@@ -135,7 +71,7 @@
         "1": 82
       },
       "flags": {},
-      "order": 11,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -176,7 +112,7 @@
         "1": 246
       },
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -190,88 +126,6 @@
       }
     },
     {
-      "id": 3,
-      "type": "CLIPTextEncode",
-      "pos": [
-        865,
-        59
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 8,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 25
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            44
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "Large modular sofa, sleek low-profile coffee table, contrasting color or unique geometric shape, wall-mounted TV, blinds on windows, large abstract art piece above sofa, throw pillows, vibrant area rug, accent furniture pieces (bold armchair or ottoman), playful and inviting ambiance, mix of textures and patterns."
-      ],
-      "color": "#232",
-      "bgcolor": "#353"
-    },
-    {
-      "id": 4,
-      "type": "CLIPTextEncode",
-      "pos": [
-        868,
-        336
-      ],
-      "size": {
-        "0": 400,
-        "1": 200
-      },
-      "flags": {},
-      "order": 7,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 24
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            45
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "(normal quality), (low quality), (worst quality), paintings, sketches"
-      ],
-      "color": "#322",
-      "bgcolor": "#533"
-    },
-    {
       "id": 9,
       "type": "VAEEncode",
       "pos": [
@@ -283,7 +137,7 @@
         "1": 46
       },
       "flags": {},
-      "order": 10,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -324,7 +178,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 2,
+      "order": 1,
       "mode": 0,
       "outputs": [
         {
@@ -357,7 +211,7 @@
         "1": 58
       },
       "flags": {},
-      "order": 3,
+      "order": 2,
       "mode": 0,
       "outputs": [
         {
@@ -378,24 +232,327 @@
       ]
     },
     {
+      "id": 7,
+      "type": "VAEDecode",
+      "pos": [
+        1961,
+        210
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 8
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 13
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            9,
+            49
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 17,
+      "type": "ControlNetApplyAdvanced",
+      "pos": [
+        1127,
+        -240
+      ],
+      "size": {
+        "0": 315,
+        "1": 166
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 50
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 51
+        },
+        {
+          "name": "control_net",
+          "type": "CONTROL_NET",
+          "link": 28
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            52
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            53
+          ],
+          "shape": 3,
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ControlNetApplyAdvanced"
+      },
+      "widgets_values": [
+        0.25,
+        0,
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CLIPTextEncode",
+      "pos": [
+        870,
+        336
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 24
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            51
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "(normal quality), (low quality), (worst quality), paintings, sketches"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 27,
+      "type": "SaveImage",
+      "pos": [
+        2214,
+        -31
+      ],
+      "size": {
+        "0": 315,
+        "1": 270
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 49
+        }
+      ],
+      "properties": {},
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "LoadImage",
+      "pos": [
+        0,
+        115
+      ],
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            38
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "modern-empty-room_downscale.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [
+        863,
+        59
+      ],
+      "size": {
+        "0": 400,
+        "1": 200
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            50
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "Large modular sofa, sleek low-profile coffee table, contrasting color or unique geometric shape, wall-mounted TV, blinds on windows, large abstract art piece above sofa, throw pillows, vibrant area rug, accent furniture pieces (bold armchair or ottoman), playful and inviting ambiance, mix of textures and patterns."
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        363,
+        245
+      ],
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            61
+          ],
+          "shape": 3,
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            24,
+            25
+          ],
+          "shape": 3,
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "Realistic_Vision_V6.0_NV_B1.safetensors"
+      ]
+    },
+    {
       "id": 22,
       "type": "IPAdapterUnifiedLoader",
       "pos": [
         671,
-        617
+        616
       ],
       "size": {
         "0": 315,
         "1": 78
       },
       "flags": {},
-      "order": 6,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
           "name": "model",
           "type": "MODEL",
-          "link": 47
+          "link": 61
         },
         {
           "name": "ipadapter",
@@ -431,6 +588,86 @@
       ]
     },
     {
+      "id": 25,
+      "type": "PrepImageForClipVision",
+      "pos": [
+        671,
+        853
+      ],
+      "size": {
+        "0": 315,
+        "1": 106
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 60,
+          "slot_index": 0
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            42
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "PrepImageForClipVision"
+      },
+      "widgets_values": [
+        "LANCZOS",
+        "top",
+        0
+      ]
+    },
+    {
+      "id": 36,
+      "type": "LoadImage",
+      "pos": [
+        304,
+        569
+      ],
+      "size": [
+        315,
+        314.0000305175781
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            60
+          ],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "reference_design_2_downscalejpg.jpg",
+        "image"
+      ]
+    },
+    {
       "id": 2,
       "type": "KSampler",
       "pos": [
@@ -448,17 +685,17 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 48
+          "link": 62
         },
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 44
+          "link": 52
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 45
+          "link": 53
         },
         {
           "name": "latent_image",
@@ -491,151 +728,6 @@
       ]
     },
     {
-      "id": 25,
-      "type": "PrepImageForClipVision",
-      "pos": [
-        671,
-        853
-      ],
-      "size": {
-        "0": 315,
-        "1": 106
-      },
-      "flags": {},
-      "order": 9,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 46,
-          "slot_index": 0
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            42
-          ],
-          "shape": 3,
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PrepImageForClipVision"
-      },
-      "widgets_values": [
-        "LANCZOS",
-        "top",
-        0
-      ]
-    },
-    {
-      "id": 26,
-      "type": "LoadImage",
-      "pos": [
-        1169,
-        1075
-      ],
-      "size": [
-        702.8363914970705,
-        572.677637039063
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            46
-          ],
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "reference_design_2_downscalejpg.jpg",
-        "image"
-      ]
-    },
-    {
-      "id": 5,
-      "type": "LoadImage",
-      "pos": [
-        439,
-        1068
-      ],
-      "size": [
-        706.7109145039065,
-        562.1345012558597
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            10,
-            38
-          ],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "modern-empty-room_downscale.jpg",
-        "image"
-      ]
-    },
-    {
-      "id": 8,
-      "type": "PreviewImage",
-      "pos": [
-        1902,
-        1087
-      ],
-      "size": [
-        543.8385425039069,
-        564.4491842558598
-      ],
-      "flags": {},
-      "order": 17,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "images",
-          "type": "IMAGE",
-          "link": 9
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "PreviewImage"
-      }
-    },
-    {
       "id": 24,
       "type": "IPAdapterAdvanced",
       "pos": [
@@ -647,7 +739,7 @@
         "1": 278
       },
       "flags": {},
-      "order": 12,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -686,7 +778,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            48
+            62
           ],
           "shape": 3,
           "slot_index": 0
@@ -696,73 +788,12 @@
         "Node name for S&R": "IPAdapterAdvanced"
       },
       "widgets_values": [
-        0.2,
+        0.3,
         "style transfer",
         "concat",
         0,
         1,
         "V only"
-      ]
-    },
-    {
-      "id": 17,
-      "type": "ControlNetApplyAdvanced",
-      "pos": [
-        1127,
-        -240
-      ],
-      "size": {
-        "0": 315,
-        "1": 166
-      },
-      "flags": {},
-      "order": 13,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "link": null
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "link": null
-        },
-        {
-          "name": "control_net",
-          "type": "CONTROL_NET",
-          "link": 28
-        },
-        {
-          "name": "image",
-          "type": "IMAGE",
-          "link": 29
-        }
-      ],
-      "outputs": [
-        {
-          "name": "positive",
-          "type": "CONDITIONING",
-          "links": [],
-          "shape": 3,
-          "slot_index": 0
-        },
-        {
-          "name": "negative",
-          "type": "CONDITIONING",
-          "links": [],
-          "shape": 3,
-          "slot_index": 1
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ControlNetApplyAdvanced"
-      },
-      "widgets_values": [
-        0.3,
-        0,
-        1
       ]
     }
   ],
@@ -896,31 +927,55 @@
       "CLIP_VISION"
     ],
     [
-      44,
+      49,
+      7,
+      0,
+      27,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
       3,
+      0,
+      17,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      51,
+      4,
+      0,
+      17,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      52,
+      17,
       0,
       2,
       1,
       "CONDITIONING"
     ],
     [
-      45,
-      4,
-      0,
+      53,
+      17,
+      1,
       2,
       2,
       "CONDITIONING"
     ],
     [
-      46,
-      26,
+      60,
+      36,
       0,
       25,
       0,
       "IMAGE"
     ],
     [
-      47,
+      61,
       1,
       0,
       22,
@@ -928,7 +983,7 @@
       "MODEL"
     ],
     [
-      48,
+      62,
       24,
       0,
       2,

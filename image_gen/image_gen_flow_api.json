@@ -21,12 +21,12 @@
         0
       ],
       "positive": [
-        "3",
+        "17",
         0
       ],
       "negative": [
-        "4",
-        0
+        "17",
+        1
       ],
       "latent_image": [
         "9",
@@ -152,9 +152,17 @@
   },
   "17": {
     "inputs": {
-      "strength": 0.3,
+      "strength": 0.25,
       "start_percent": 0,
       "end_percent": 1,
+      "positive": [
+        "3",
+        0
+      ],
+      "negative": [
+        "4",
+        0
+      ],
       "control_net": [
         "15",
         0
@@ -205,7 +213,7 @@
   },
   "24": {
     "inputs": {
-      "weight": 0.2,
+      "weight": 0.3,
       "weight_type": "style transfer",
       "combine_embeds": "concat",
       "start_at": 0,
@@ -239,7 +247,7 @@
       "crop_position": "top",
       "sharpening": 0,
       "image": [
-        "26",
+        "36",
         0
       ]
     },
@@ -248,7 +256,20 @@
       "title": "Prep Image For ClipVision"
     }
   },
-  "26": {
+  "27": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "Save Image"
+    }
+  },
+  "36": {
     "inputs": {
       "image": design_style_image_url,
       "upload": "image"
